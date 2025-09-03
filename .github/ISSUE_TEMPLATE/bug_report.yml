@@ -1,0 +1,8 @@
+name: Bug report
+description: Reporta un fallo
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: steps
+    attributes: { label: Pasos, description: ¿Cómo reproducir? }
