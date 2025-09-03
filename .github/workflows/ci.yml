@@ -1,0 +1,18 @@
+name: CI
+on:
+  push:
+    branches: [main, 'feature/*', 'fix/*']
+  pull_request:
+jobs:
+  lint-and-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: HTMLHint
+        run: |
+          npm i -g htmlhint
+          htmlhint "**/*.html"
+      - name: Link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --verbose "**/*.md" "**/*.html"
